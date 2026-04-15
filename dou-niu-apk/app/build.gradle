@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.douniu.game'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.douniu.game"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    signingConfigs {
+        release {
+            // 正式发布时填入你的 keystore 信息
+            // storeFile file('your-keystore.jks')
+            // storePassword 'yourPassword'
+            // keyAlias 'yourAlias'
+            // keyPassword 'yourKeyPassword'
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    // 纯 WebView 壳，无需额外依赖
+}
